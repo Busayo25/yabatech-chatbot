@@ -1,0 +1,90 @@
+{
+  "greetings": {
+    "patterns": ["Hi", "Hello", "Hey", "Good morning", "Good evening"],
+    "responses": ["Hello! How can I help you at Yabatech today?"]
+  },
+  "capabilities": {
+    "patterns": ["What can you do", "What kind of questions can you answer", "How can you help me"],
+    "responses": [
+      "I am just a simple chatbot. I can provide you with answers related to Yabatech.",
+      "I can answer any questions related to Yabatech.",
+      "I can provide information on anything you need. Feel free to ask me anything."
+    ]
+  },
+  "location": {
+    "address": "Yaba, Lagos, Nigeria",
+    "maps_link": "https://www.google.com/maps/place/Yaba+College+of+Technology",
+    "responses": [
+      "Yaba College of Technology is located in Yaba, Lagos, Nigeria. You can check the exact location on Google Maps."
+    ]
+  },
+  "departments": [
+    {
+      "name": "School of Science",
+      "courses": [
+        {
+          "name": "Computer Science",
+          "description": "Programming, algorithms, data structures, and software engineering",
+          "requirements": "Mathematics, Physics, and English",
+          "duration": "2 years (ND)"
+        }
+      ]
+    },
+    {
+      "name": "School of Engineering",
+      "courses": [
+        {
+          "name": "Electrical Engineering",
+          "description": "Circuit analysis, electronics, and electromagnetism",
+          "requirements": "Mathematics, Physics, and Further Mathematics",
+          "duration": "2 years (ND)"
+        }
+      ]
+    },
+    {
+      "name": "School of Art",
+      "courses": [
+        {
+          "name": "Fine Arts",
+          "description": "Painting, Drawing, Sculpture and Art history",
+          "requirements": "Art, English and any other relevant subject",
+          "duration": "2 years (ND)"
+        }
+      ]
+    }
+  ],
+  "admissions": {
+    "requirements": {
+      "ND": "5 O'Level credits including English and Mathematics",
+      "HND": "ND in relevant field with Lower Credit"
+    },
+    "portal": "https://yabatech.edu.ng/admissions",
+    "responses": [
+      "Visit https://yabatech.edu.ng/admissions for admission steps and requirements."
+    ]
+  },
+  "academics": {
+    "timetable": {
+      "info": "Department-specific schedules available on portal",
+      "portal": "portal.yabatech.edu.ng"
+    },
+    "results": {
+      "portal": "portal.yabatech.edu.ng",
+      "responses": [
+        "Use the student portal at portal.yabatech.edu.ng to check results."
+      ]
+    }
+  },
+  "financial": {
+    "fees": {
+      "info": "Department-specific fee structures",
+      "responses": [
+        "Check the official Yabatech site for the updated fee breakdown."
+      ]
+    }
+  },
+  "goodbye": {
+    "patterns": ["Bye", "Goodbye", "Thanks", "Thank you"],
+    "responses": ["You're welcome! Wishing you success at Yabatech."]
+  }
+}

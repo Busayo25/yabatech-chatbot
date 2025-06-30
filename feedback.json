@@ -1,0 +1,50 @@
+import streamlit as st
+import pandas as pd
+import plotly.express as px
+from datetime import datetime
+
+st.title("📊 Feedback Analytics")
+
+try:
+    with open("data/feedback.json") as f:
+        feedback_data = json.load(f)
+    
+    # Convert to DataFrame
+    df = pd.DataFrame(feedback_data["feedbacks"])
+    df['timestamp'] = pd.to_datetime(df['timestamp'])
+    
+    # Show metrics
+    col1, col2 = st.columns(2)
+    with col1:
+        st.metric("👍 Positive Feedback", feedback_data["stats"]["positive"])
+    with col2:
+        st.metric("👎 Negative Feedback", feedback_data["stats"]["negative"])
+    
+    # Plot timeline
+    st.subheader("Feedback Over Time")
+    df['date'] = df['timestamp'].dt.date
+    daily_feedback = df.groupby(['date', 'rating']).size().unstack().fillna(0)
+    fig = px.line(daily_feedback, 
+                 title="Daily Feedback Trends",
+                 labels={"value": "Count", "date": "Date"})
+    st.plotly_chart(fig, use_container_width=True)
+    
+    # Show raw data
+    st.subheader("Recent Feedback")
+    st.dataframe(
+        df.sort_values('timestamp', ascending=False).head(10),
+        column_config={
+            "timestamp": "Time",
+            "question": "User Question",
+            "response": "Bot Response",
+            "rating": st.column_config.NumberColumn(
+                "Rating",
+                format="%d ⭐",
+                help="1=Positive, 0=Negative"
+            )
+        },
+        hide_index=True
+    )
+
+except FileNotFoundError:
+    st.warning("No feedback data available yet.")
